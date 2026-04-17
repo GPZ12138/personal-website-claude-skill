@@ -108,18 +108,35 @@ If you'd rather not have Claude Code guess, attach a resume PDF too. It helps wi
 
 These are opinions, not laws. The skill leans on them by default; you can override any of them at the start (*"I want italics"*, *"I want a blue accent"*, etc.) and it'll build it your way — usually with a one-line note about why the default exists, so you can reconsider or stick with your call.
 
-1. **No italics.** `em { font-style: normal; }` globally. I find them hard to read at small sizes.
-2. **One font.** Source Sans 3. No serif headings, no monospace "metric" font, no display secondary. Numbers get `font-variant-numeric: tabular-nums` instead of a code font.
-3. **One shade of gray.** Seven grayscale steps, no accent color. The only color on the page comes from the headshot.
-4. **Emoji on `<h2>` headings only**, one per heading, max. Zero in body copy.
-5. **Light-gray venue pills** with a 1px border, not solid black. Solid-black pills on a white page read heavy.
-6. **Bold what a reader recognizes.** Top-tier institutions, well-known project / paper names. Not every collaborator or internal codename.
-7. **First-author `★` only on papers where you're first author.** If every paper has a star, the star means nothing.
-8. **Union of sources, never silent drops.** If LinkedIn, Scholar, CV, or an existing site mentions something, it goes in. Conflicts resolve to the more specific or more recent value.
-9. **Public numbers only (default).** Internal benchmark scores, pre-release model names, non-public grant sizes stay vague unless you explicitly override. "Covert confidence" is the aesthetic.
-10. **Two-agent review, minimum three rounds.** A generator agent ships v1. A reviewer agent opens the deployed URL and scores against a 30-item rubric. Flags become fixes, fixes redeploy, redeploy gets re-reviewed — until the rubric clears.
+### Visual taste
 
-Full rationale for each rule lives in [`skills/personal-website-for-ai-researcher/SKILL.md`](skills/personal-website-for-ai-researcher/SKILL.md) — that file is the spec; the rules aren't arbitrary, but they are opinionated.
+1. **No italics.** `em { font-style: normal; }` globally. I find them hard to read at small sizes; emphasis is weight, not slant.
+2. **One font.** Source Sans 3 only. No serif headings, no monospace "metric" font, no display secondary. Numeric cells get `font-variant-numeric: tabular-nums` so columns line up — that's a CSS hint, not a separate code font.
+3. **One shade of gray, seven steps.** From `#ffffff` to `#161616`. No accent color. The only color on the page comes from the headshot — and that's why the headshot pops naturally without arXiv red anywhere else.
+4. **Emoji on `<h2>` section headings only.** One per heading, max. Zero in body copy, publication titles, news items, honors bullets. Total page budget is roughly nine — pick from the academic set (👋 🔥 📚 💼 🏆 🎓 🛠 🌿 📮), not status-light glyphs.
+5. **Light-gray venue pills** with a 1px border, never solid black. A black pill with white text on a white page reads as mourning.
+6. **Components are tokenized — change one, change all.** Every repeated shape (venue pill, news card, contact tile, stats box, incoming-role box, publication row) pulls from the same CSS variables. Two boxes side-by-side use byte-identical bg / border / radius / padding / shadow. Readers pattern-match on shape; mismatched repeats read sloppy even when content is good.
+
+### Modes & device support
+
+7. **Bilingual EN / 中 with parity, not just a toggle.** If you opt in, every translatable node carries both `data-en` and `data-zh` attributes — and the default visible HTML byte-matches `data-en`, so search-engine crawlers and pre-JS readers see the same page as everyone else. The English page contains zero non-English glyphs (the only exception is a parenthesized professional term with no English equivalent — Romanized when possible). The Chinese page uses full-width punctuation (`：，。`) and is allowed to keep canonical English terms (model names, paper titles, technical loanwords).
+8. **Dark mode is first-class, not an afterthought.** First load follows `prefers-color-scheme`; the toggle then persists in `localStorage`. Both palettes get a real seven-step grayscale designed for the mode — not a quick filter inversion. The headshot stays in color; the hierarchy stays the same; only the gray tokens swap.
+9. **Built for every device class.** Two-column grid collapses to single column at `< 960px`; below `720px` the top nav hides because the section headings *are* the navigation. Safe-area insets respected on iOS notch / home indicator. Every interactive element ≥ 40 × 40 px at phone size. Hover styles guarded by `@media (hover: hover)` so they don't stick on touch screens. Headshot is `object-fit: cover` (never stretched), exported at 2× for retina, with `width` / `height` HTML attrs to prevent layout shift. `prefers-reduced-motion` disables every transition and reveal animation.
+
+### Content discipline
+
+10. **Bold what a reader recognizes.** Top-tier institutions, well-known project / paper names. Not every collaborator. Not every internal codename. Not generic titles like `intern` or `researcher`.
+11. **First-author `★` only where you're first author.** No `equal contribution` asterisk inflation; if every paper has a star, the star means nothing.
+12. **Union of sources, never silent drops.** If LinkedIn, Scholar, CV, or an existing site mentions an item, it goes in. Conflicts resolve to the more specific or more recent value. Single-source items get batched into a wrap-up message at the end so you can drop any you don't want — never silently filtered mid-build.
+13. **Public numbers only (default).** Internal benchmark scores, pre-release model names, non-public grant sizes stay vague unless you explicitly override. The aesthetic is *covert confidence* — specific where the source is public, deliberately vague where it isn't.
+14. **Honest layout — empty sections omitted, not padded.** No publications? Section disappears. Skipped Scholar? The widget vanishes. No teaching? No teaching section. Better to ship a short, true page than a long, padded one that fades into LinkedIn-template texture.
+
+### Behavior & process
+
+15. **Live Scholar widget that won't get you CAPTCHA'd.** Two-tier polite poll runs daily at a non-round minute (`17 3 * * *`) to dodge the top-of-hour bot peak. A lightweight HTML scrape reads one number first; only on change does it trigger the heavy full scrape via `scholarly`. On any error, the previous snapshot is preserved — your page never flickers to zero.
+16. **Two-agent review, minimum three rounds.** A generator agent ships v1. A reviewer agent opens the deployed URL and scores against a 30-item rubric (palette / tone / markup / data integrity / responsiveness / deployment correctness). Flags become fixes, fixes redeploy, redeploy gets re-reviewed — until the rubric clears, then twice more.
+
+Full rationale for each rule — and ~50 more pre-ship checklist items I didn't surface here — lives in [`skills/personal-website-for-ai-researcher/SKILL.md`](skills/personal-website-for-ai-researcher/SKILL.md). That file is the spec; the rules aren't arbitrary, but they are opinionated.
 
 ## 🖼️ Example
 
