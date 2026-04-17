@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light" data-lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Alex Morgan — demo</title>
+  <meta name="description" content="Demonstration homepage for the personal-website-for-ai-researcher skill. Fabricated LLM RL researcher; not a real person." />
+  <meta name="author" content="demo" />
+
+  <meta property="og:type" content="profile" />
+  <meta property="og:title" content="Alex Morgan — demo" />
+  <meta property="og:description" content="Demo homepage produced by the personal-website-for-ai-researcher Claude Code skill." />
+  <meta property="og:image" content="assets/avatar.svg" />
+
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ctext y='23' font-size='20' font-weight='700' font-family='Helvetica,Arial,sans-serif'%3EAM%3C/text%3E%3C/svg%3E" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@400;500;600;700&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="styles.css?v=17" />
+
+  <style>
+    /* Identicon avatar — render the tiny viewBox crisply instead of smoothing */
+    .avatar { image-rendering: pixelated; image-rendering: crisp-edges; }
+  </style>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="site-header" id="site-header">
+    <div class="header-inner">
+      <a href="#top" class="home-link">Alex Morgan</a>
+      <nav class="nav-primary" aria-label="Primary">
+        <a href="#about">About</a>
+        <a href="#news">News</a>
+        <a href="#publications">Publications</a>
+        <a href="#experience">Experience</a>
+        <a href="#honors">Honors</a>
+        <a href="#education">Education</a>
+      </nav>
+      <div class="header-tools">
+        <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme" title="Toggle theme">
+          <span class="tt-light">☀</span><span class="tt-dark">☾</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <div class="page" id="top">
+
+    <aside class="sidebar">
+      <img class="avatar" src="assets/avatar.svg" alt="Identicon placeholder avatar" width="176" height="176" />
+
+      <h1 class="profile-name">Alex Morgan</h1>
+
+      <p class="profile-affil">
+        Research Engineer · <b>Helix AI</b><br/>M.S. · <b>UC Berkeley</b>
+      </p>
+
+      <div class="profile-stats">
+        <ul class="ps-list">
+          <li><span class="ps-num" id="sideTotal">342</span><span class="ps-cap">citations</span></li>
+          <li><span class="ps-num" id="sideH">8</span><span class="ps-cap">h-index</span></li>
+          <li><span class="ps-num" id="sidePubs">14</span><span class="ps-cap">papers</span></li>
+        </ul>
+        <p class="ps-src">live · Google Scholar</p>
+      </div>
+
+      <ul class="contact-grid" aria-label="Links">
+        <li><a href="mailto:alex@example.com" title="alex@example.com">
+          <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>
+          <span>Email</span>
+        </a></li>
+        <li><a href="#" title="Google Scholar">
+          <svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor"><path d="M12 2 1 9l4.5 2.95V17h13V11.95L23 9 12 2Zm0 2.3L19.7 9 12 14 4.3 9 12 4.3Zm-5 10.3L12 17l5-2.4v3.9c-1.5 1-3.2 1.5-5 1.5s-3.5-.5-5-1.5v-3.9Z"/></svg>
+          <span>Scholar</span>
+        </a></li>
+        <li><a href="#" title="LinkedIn">
+          <svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.03-3.04-1.85-3.04-1.86 0-2.14 1.45-2.14 2.95v5.66H9.35V9h3.42v1.56h.05c.48-.9 1.64-1.86 3.38-1.86 3.61 0 4.28 2.38 4.28 5.47v6.28ZM5.34 7.43A2.07 2.07 0 1 1 5.34 3.3a2.07 2.07 0 0 1 0 4.13Zm1.78 13.02H3.56V9h3.56v11.45ZM22.23 0H1.77C.79 0 0 .78 0 1.73v20.54C0 23.22.79 24 1.77 24h20.46c.98 0 1.77-.78 1.77-1.73V1.73C24 .78 23.21 0 22.23 0Z"/></svg>
+          <span>LinkedIn</span>
+        </a></li>
+        <li><a href="#" title="GitHub">
+          <svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor"><path d="M12 .5a11.5 11.5 0 0 0-3.64 22.41c.58.11.79-.25.79-.56v-2c-3.2.7-3.88-1.37-3.88-1.37-.53-1.35-1.29-1.72-1.29-1.72-1.05-.72.08-.7.08-.7 1.17.08 1.78 1.2 1.78 1.2 1.04 1.78 2.72 1.27 3.38.97.11-.75.41-1.27.74-1.56-2.55-.29-5.24-1.28-5.24-5.7 0-1.26.45-2.29 1.19-3.1-.12-.29-.51-1.46.11-3.05 0 0 .97-.31 3.18 1.18a10.93 10.93 0 0 1 5.78 0c2.2-1.49 3.17-1.18 3.17-1.18.62 1.59.23 2.76.11 3.05.74.81 1.18 1.84 1.18 3.1 0 4.43-2.69 5.41-5.25 5.69.42.36.8 1.07.8 2.16v3.2c0 .31.21.68.8.56A11.5 11.5 0 0 0 12 .5Z"/></svg>
+          <span>GitHub</span>
+        </a></li>
+        <li><a href="#publications" title="Publications">
+          <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="3" width="14" height="18" rx="1.5"/><line x1="8" y1="8" x2="16" y2="8"/><line x1="8" y1="12" x2="16" y2="12"/><line x1="8" y1="16" x2="13" y2="16"/></svg>
+          <span>Papers</span>
+        </a></li>
+        <li><a href="#honors" title="Honors &amp; Grants">
+          <svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor"><path d="M12 2 14.9 8.2 21.5 9.2 16.8 14l1.2 6.7L12 17.6 5.9 20.7l1.2-6.7L2.5 9.2l6.6-1Z"/></svg>
+          <span>Honors</span>
+        </a></li>
+      </ul>
+      <p class="sidebar-loc" aria-label="Location">
+        <svg viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block;vertical-align:-2px;margin-right:4px"><path d="M21 10c0 7-9 13-9 13S3 17 3 10a9 9 0 1 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>San Francisco · Berkeley</p>
+
+      <div class="profile-interests">
+        <p class="pi-label">Research interests</p>
+        <p class="pi-body">
+          Post-training · Verifiable RL · Multi-turn agents · Process rewards · Eval design.
+        </p>
+      </div>
+    </aside>
+
+    <main id="main" class="content">
+
+      <section id="about" class="section">
+        <h2>👋 About Me</h2>
+        <div class="about-body">
+          <p>I'm a Research Engineer at <b>Helix AI</b>, working on post-training reinforcement learning for large language models. My focus is <b>verifiable reasoning</b> — training models with reward signals that can be checked programmatically rather than by a learned critic — and <b>multi-turn agentic RL</b>, where a model has to compose tools, plan, and check its own work over dozens of steps.</p>
+          <p>Before Helix, I was a Research Intern at <b>Meta FAIR</b> (summer 2024) on long-context post-training for code agents, and at <b>Google DeepMind</b> (summer 2023) on preference-based fine-tuning for the Gemini family. I completed my <b>M.S. in Computer Science</b> at <b>UC Berkeley</b> in 2024 — advised by Prof. M. Chen in the Berkeley AI Research Lab — and my <b>B.S. in CS</b> with a minor in Math at the <b>University of Illinois at Urbana-Champaign</b>.</p>
+          <p class="about-close">My belief: the next decade of real economic output depends on systems that can <b>check their own work</b> and act <b>reliably across hundreds of steps</b>. Single-turn chat is the easy part — the hard part is agents that stay honest at scale.</p>
+        </div>
+      </section>
+
+      <section id="news" class="section">
+        <h2>🔥 News</h2>
+        <ul class="news">
+          <li><span class="ndate">2026.03</span> New preprint: <b>Process Reward Models for Multi-turn Agentic Reasoning</b>. [<a href="#">arXiv</a>] [<a href="#">GitHub</a>]</li>
+          <li><span class="ndate">2026.01</span> Promoted to full <b>Research Engineer</b> at Helix AI.</li>
+          <li><span class="ndate">2025.12</span> NeurIPS 2025 paper <b>Verifiable Reasoning via Programmatic Rewards</b> — <b>Outstanding Paper Runner-Up</b>. [<a href="#">Proceedings</a>] [<a href="#">Code</a>]</li>
+          <li><span class="ndate">2025.09</span> Defended M.S. thesis — <b>Verifiable Reinforcement Learning for LLM Reasoning</b> — at UC Berkeley.</li>
+          <li><span class="ndate">2025.06</span> ICML 2025 paper <b>Stable Post-training with Curriculum-Guided Rollouts</b> accepted.</li>
+          <li><span class="ndate">2025.03</span> Invited talk at <b>Simons Institute</b> workshop on RL for Reasoning.</li>
+          <li><span class="ndate">2024.08</span> Joined <b>Helix AI</b> full-time as Research Scientist (new grad).</li>
+          <li><span class="ndate">2024.06</span> Research internship at <b>Meta FAIR</b> — long-context RL for code-completion agents.</li>
+          <li><span class="ndate">2024.04</span> ICLR 2024 first-author paper <b>On the Sample Complexity of Preference-based Fine-tuning</b>.</li>
+          <li><span class="ndate">2023.06</span> Research internship at <b>Google DeepMind</b> — Gemini post-training.</li>
+        </ul>
+      </section>
+
+      <section id="publications" class="section">
+        <h2>📚 Publications</h2>
+        <p class="sec-sub">
+          Full list on <a href="#">Google Scholar</a>. ★ = first author.
+        </p>
+
+        <div class="impact" id="impact">
+          <p class="impact-head-line">
+            <span class="impact-label">Citations by year</span>
+            <span class="impact-status" id="impactStatus">syncing…</span>
+          </p>
+          <div class="impact-bars" id="impactBars">
+            <div class="impact-bar-row" data-year="2022" data-count="4"><span class="impact-bar-year">2022</span><div class="impact-bar-track"><span class="impact-bar-fill" style="width:2.4%"></span></div><span class="impact-bar-count">4</span></div>
+            <div class="impact-bar-row" data-year="2023" data-count="28"><span class="impact-bar-year">2023</span><div class="impact-bar-track"><span class="impact-bar-fill" style="width:16.8%"></span></div><span class="impact-bar-count">28</span></div>
+            <div class="impact-bar-row" data-year="2024" data-count="91"><span class="impact-bar-year">2024</span><div class="impact-bar-track"><span class="impact-bar-fill" style="width:54.5%"></span></div><span class="impact-bar-count">91</span></div>
+            <div class="impact-bar-row" data-year="2025" data-count="167"><span class="impact-bar-year">2025</span><div class="impact-bar-track"><span class="impact-bar-fill" style="width:100%"></span></div><span class="impact-bar-count">167</span></div>
+            <div class="impact-bar-row is-current" data-year="2026" data-count="52"><span class="impact-bar-year">2026</span><div class="impact-bar-track"><span class="impact-bar-fill" style="width:31.1%"></span></div><span class="impact-bar-count">52</span></div>
+          </div>
+          <p class="impact-note" id="impactUpdated">Auto-synced daily from Google Scholar via GitHub Actions.</p>
+        </div>
+
+        <ol class="pub-list">
+
+          <li class="pub">
+            <div class="pub-venue">arXiv 2026 ★</div>
+            <div class="pub-body">
+              <p class="pub-title"><a href="#">Process Reward Models for Multi-turn Agentic Reasoning</a></p>
+              <p class="pub-authors"><b>Alex Morgan</b>, K. Zhang, J. Park, et&nbsp;al. · Helix AI Technical Report · <span class="pub-cite">23 citations</span></p>
+              <p class="pub-note">First-author paper introducing a family of <b>process reward models</b> for multi-turn agents. Beats outcome-only rewards by <b>~14%</b> on tool-use benchmarks; uses the same wall-clock training budget.</p>
+              <p class="pub-links"><a href="#">[arXiv]</a> <a href="#">[Code]</a> <a href="#">[Blog]</a></p>
+            </div>
+          </li>
+
+          <li class="pub">
+            <div class="pub-venue">NeurIPS 2025 ★</div>
+            <div class="pub-body">
+              <p class="pub-title"><a href="#">Verifiable Reasoning via Programmatic Rewards</a></p>
+              <p class="pub-authors"><b>Alex Morgan</b>, M. Chen, J. Lee · NeurIPS 2025 · <span class="pub-cite">89 citations</span></p>
+              <p class="pub-note"><b>Outstanding Paper runner-up.</b> A training recipe that uses executable verifiers for reasoning tasks. Closes roughly <b>60% of the gap</b> between pass@1 and pass@16 on MATH, and transfers to code and formal proofs without a learned reward model.</p>
+              <p class="pub-links"><a href="#">[Proceedings]</a> <a href="#">[Code]</a> <a href="#">[Talk]</a></p>
+            </div>
+          </li>
+
+          <li class="pub">
+            <div class="pub-venue">ICML 2025</div>
+            <div class="pub-body">
+              <p class="pub-title">Stable Post-training with Curriculum-Guided Rollouts</p>
+              <p class="pub-authors">K. Zhang, <b>Alex Morgan</b>, S. Park, M. Chen · ICML 2025 · <span class="pub-cite">41 citations</span></p>
+              <p class="pub-note">Curriculum-guided rollout sampling that removes most of the variance spikes in on-policy RL post-training runs above 70B parameters.</p>
+            </div>
+          </li>
+
+          <li class="pub">
+            <div class="pub-venue">arXiv 2025 ★</div>
+            <div class="pub-body">
+              <p class="pub-title">Tool-Use Scaling Laws for Foundation Models</p>
+              <p class="pub-authors"><b>Alex Morgan</b>, S. Park, T. Nguyen · arXiv preprint · <span class="pub-cite">54 citations</span></p>
+              <p class="pub-note">First scaling-law study of tool-use success across model sizes and context lengths. Identifies a clean power-law fit for browser-agent tasks; a significantly noisier one for long-horizon planning.</p>
+            </div>
+          </li>
+
+          <li class="pub">
+            <div class="pub-venue">ICLR 2024 ★</div>
+            <div class="pub-body">
+              <p class="pub-title">On the Sample Complexity of Preference-based Fine-tuning</p>
+              <p class="pub-authors"><b>Alex Morgan</b>, T. Nguyen · ICLR 2024 · <span class="pub-cite">67 citations</span></p>
+              <p class="pub-note">Tight bounds on how many preference pairs a model actually needs to converge under different loss formulations. The <b>log-odds loss is sample-optimal</b> under a mild regularity condition we introduce.</p>
+            </div>
+          </li>
+
+          <li class="pub">
+            <div class="pub-venue">NeurIPS 2024</div>
+            <div class="pub-body">
+              <p class="pub-title">Multi-turn Reward Hacking and How to Prevent It</p>
+              <p class="pub-authors">J. Park, <b>Alex Morgan</b>, M. Chen · NeurIPS 2024 · <span class="pub-cite">38 citations</span></p>
+              <p class="pub-note">Documents three new categories of reward hacking that only emerge in multi-turn interaction, plus a lightweight verifier-ensemble fix.</p>
+            </div>
+          </li>
+
+          <li class="pub">
+            <div class="pub-venue">arXiv 2023 ★</div>
+            <div class="pub-body">
+              <p class="pub-title">Self-Improving Reasoning via Verifiable Rewards</p>
+              <p class="pub-authors"><b>Alex Morgan</b>, M. Chen · arXiv preprint · <span class="pub-cite">31 citations</span></p>
+              <p class="pub-note">Precursor to the NeurIPS 2025 work — first pass at the idea that verifiable reward signals beat learned reward models on reasoning-heavy tasks.</p>
+            </div>
+          </li>
+
+        </ol>
+      </section>
+
+      <section id="experience" class="section">
+        <h2>💼 Work Experience</h2>
+        <ul class="exp">
+          <li>
+            <div class="exp-dates">2024.08 – Present</div>
+            <p class="exp-role">
+              Research Engineer, <b>Helix AI</b> — RL post-training team. Contributor to the team's internal model <b>Orion</b>; first-author on the team's public work on <b>process reward models</b> and <b>verifiable RL</b>.
+            </p>
+          </li>
+          <li>
+            <div class="exp-dates">2024.06 – 2024.08</div>
+            <p class="exp-role">
+              Research Intern, <b>Meta FAIR</b>. Long-context RL post-training for code-completion agents; contributed to an internal code-agent release.
+            </p>
+          </li>
+          <li>
+            <div class="exp-dates">2023.06 – 2023.08</div>
+            <p class="exp-role">
+              Research Intern, <b>Google DeepMind</b>. Preference-based post-training for the <b>Gemini</b> family; specifically, stability of DPO-style objectives at long context.
+            </p>
+          </li>
+          <li>
+            <div class="exp-dates">2022.09 – 2024.05</div>
+            <p class="exp-role">
+              Graduate Student Researcher, <b>Berkeley AI Research (BAIR)</b>. Advised by Prof. M. Chen on reinforcement learning for reasoning.
+            </p>
+          </li>
+          <li>
+            <div class="exp-dates">2021.06 – 2022.05</div>
+            <p class="exp-role">
+              Undergraduate Researcher, <b>UIUC</b> — probabilistic reasoning lab. First exposure to RL research; co-authored one workshop paper.
+            </p>
+          </li>
+        </ul>
+      </section>
+
+      <section id="honors" class="section">
+        <h2>🏆 Selected Honors &amp; Grants</h2>
+        <ul class="honors">
+          <li><b>NeurIPS 2025 Outstanding Paper Runner-Up</b> — <b>Verifiable Reasoning via Programmatic Rewards</b>, 2025.</li>
+          <li><b>NSF Graduate Research Fellowship</b> — National Science Foundation, 2022.</li>
+          <li><b>Hertz Foundation Fellowship Finalist</b> — Fannie and John Hertz Foundation, 2022.</li>
+          <li><b>Berkeley AI Research Fellowship</b> — UC Berkeley, 2022.</li>
+          <li><b>Gold Award</b>, ACM Student Research Competition — ACM, 2021.</li>
+          <li><b>Phi Beta Kappa</b> — UIUC chapter, 2022.</li>
+          <li><b>Outstanding Senior in Computer Science</b> — UIUC, 2022.</li>
+          <li><b>Bronze Tablet</b> (top 3% of graduating class) — UIUC, 2022.</li>
+        </ul>
+      </section>
+
+      <section id="education" class="section">
+        <h2>🎓 Education</h2>
+        <ul class="edu">
+          <li>
+            <span class="edu-date">2022.09 – 2024.05</span> <b>M.S. in Computer Science</b> — Berkeley AI Research Lab, <b>University of California, Berkeley</b>. Advisor: Prof. M. Chen. GPA 3.94 / 4.00.
+          </li>
+          <li>
+            <span class="edu-date">2018.09 – 2022.05</span> <b>B.S. in Computer Science</b> with Mathematics minor, <b>University of Illinois at Urbana-Champaign</b>.
+            <div class="edu-sub">GPA 3.97 / 4.00 · Phi Beta Kappa · Bronze Tablet (top 3%) · Outstanding Senior in CS.</div>
+          </li>
+        </ul>
+      </section>
+
+      <section id="skills" class="section">
+        <h2>🛠 Skills</h2>
+        <p class="skills-line"><b>Post-training:</b> RL · PPO · GRPO · DPO · SFT · Reward Modeling · Rejection Sampling.</p>
+        <p class="skills-line"><b>Reasoning &amp; Agents:</b> Verifiable RL · Process Rewards · Multi-turn Agents · Tool-Use · RAG · Eval Design.</p>
+        <p class="skills-line"><b>Engineering:</b> Python · PyTorch · JAX · vLLM · Ray · Triton · Docker.</p>
+      </section>
+
+      <section id="off-hours" class="section">
+        <h2>🌿 Outside Work</h2>
+        <p>
+          Outside of work I'm into <b>rock climbing</b>, <b>long trail runs</b>, and hosting <b>reading groups on new RL papers</b>. I also spend a lot of time listening to audiobooks on <b>economic history</b> and <b>manufacturing logistics</b> — some of the best systems papers I've read sound strangely like descriptions of supply chains.
+        </p>
+      </section>
+
+      <section id="contact" class="section">
+        <h2>📮 Contact</h2>
+        <p>
+          Best reached by email at <a href="mailto:alex@example.com"><b>alex@example.com</b></a>. Also on <a href="#">Google Scholar</a>, <a href="#">LinkedIn</a>, and <a href="#">GitHub</a>.
+        </p>
+      </section>
+
+      <footer class="site-footer">
+        <p>© 2026 Alex Morgan · San Francisco · Berkeley · demo (fabricated content) produced by the <a href="https://github.com/gpz12138/awesome-awesome-personal-website-skills">personal-website-for-ai-researcher</a> skill.</p>
+      </footer>
+    </main>
+  </div>
+
+  <script src="script.js?v=12" defer></script>
+</body>
+</html>

@@ -1,0 +1,30 @@
+{
+  "name": "personal-website-for-ai-researcher",
+  "version": "1.0.0",
+  "description": "Build a monochrome, PhD-caliber personal homepage for an AI / ML researcher from a LinkedIn URL, a Google Scholar URL, and a GitHub account. Static single-page site, two-column layout, bilingual EN/中 toggle, light/dark theme, live Scholar citation widget, deployed to GitHub Pages with zero build step.",
+  "author": {
+    "name": "Peizhong (Chill) Gao",
+    "url": "https://gpz12138.github.io"
+  },
+  "homepage": "https://github.com/gpz12138/awesome-personal-website-skills",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/gpz12138/awesome-personal-website-skills.git"
+  },
+  "license": "MIT",
+  "keywords": [
+    "claude-code",
+    "claude-code-skill",
+    "claude-skill",
+    "ai-researcher",
+    "ml-researcher",
+    "phd",
+    "academic-homepage",
+    "personal-website",
+    "github-pages",
+    "google-scholar",
+    "static-site",
+    "monochrome",
+    "bilingual"
+  ]
+}

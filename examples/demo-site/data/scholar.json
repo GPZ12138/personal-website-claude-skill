@@ -1,0 +1,21 @@
+{
+  "name": "Alex Morgan",
+  "affiliation": "Helix AI",
+  "scholar_id": "DEMO000000",
+  "total_citations": 342,
+  "h_index": 8,
+  "i10_index": 7,
+  "publications_count": 14,
+  "per_year": {
+    "2022": 4,
+    "2023": 28,
+    "2024": 91,
+    "2025": 167,
+    "2026": 52
+  },
+  "last_updated": "2026-04-16T03:17:00Z",
+  "last_check":   "2026-04-16T03:17:00Z",
+  "last_check_method": "demo-fabricated",
+  "source": "fabricated for demo — not a real researcher",
+  "note": "This scholar.json ships with the demo. All numbers are illustrative. A real site produced by the skill updates this file daily via .github/workflows/update-scholar.yml."
+}

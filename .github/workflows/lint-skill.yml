@@ -1,0 +1,101 @@
+name: Lint SKILL.md
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "skills/**/SKILL.md"
+      - ".github/workflows/lint-skill.yml"
+  pull_request:
+    paths:
+      - "skills/**/SKILL.md"
+      - ".github/workflows/lint-skill.yml"
+  workflow_dispatch:
+
+jobs:
+  validate-frontmatter:
+    name: Validate SKILL.md frontmatter
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install PyYAML
+        run: pip install pyyaml
+
+      - name: Validate every SKILL.md
+        shell: python
+        run: |
+          import pathlib, sys, yaml
+
+          failures = []
+          for path in pathlib.Path("skills").rglob("SKILL.md"):
+              text = path.read_text(encoding="utf-8")
+
+              if not text.startswith("---\n"):
+                  failures.append(f"{path}: missing YAML frontmatter (must start with '---')")
+                  continue
+
+              end = text.find("\n---\n", 4)
+              if end == -1:
+                  failures.append(f"{path}: frontmatter block not terminated")
+                  continue
+
+              raw = text[4:end]
+              try:
+                  meta = yaml.safe_load(raw)
+              except yaml.YAMLError as e:
+                  failures.append(f"{path}: invalid YAML — {e}")
+                  continue
+
+              if not isinstance(meta, dict):
+                  failures.append(f"{path}: frontmatter is not a mapping")
+                  continue
+
+              for required in ("name", "description"):
+                  if required not in meta:
+                      failures.append(f"{path}: missing required field '{required}'")
+
+              if "name" in meta and not isinstance(meta["name"], str):
+                  failures.append(f"{path}: 'name' must be a string")
+              if "description" in meta:
+                  desc = meta["description"]
+                  if not isinstance(desc, str):
+                      failures.append(f"{path}: 'description' must be a string")
+                  elif len(desc) < 40:
+                      failures.append(f"{path}: 'description' is too short ({len(desc)} chars) — aim for at least 40 so Claude can route to it")
+
+              print(f"checked {path}")
+
+          if failures:
+              print("\nFailures:")
+              for f in failures:
+                  print(f"  - {f}")
+              sys.exit(1)
+
+          print("\nAll SKILL.md files valid.")
+
+  no-ai-attribution:
+    name: No AI attribution in history
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout full history
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Grep commits for AI co-author tags
+        run: |
+          set -e
+          if git log --all --format="%B" | grep -Ei "Co-Authored-By:.*(Claude|Anthropic|AI|Copilot|GPT)"; then
+              echo "::error::Found AI co-author attribution in commit history. This repo keeps only human contributors."
+              exit 1
+          fi
+          echo "Clean — no AI attribution found."

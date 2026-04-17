@@ -1,0 +1,158 @@
+/* ============================================================
+ * Personal-website-for-ai-researcher — canonical design tokens.
+ * Drop into the top of styles.css. Do not add colors outside
+ * this table.
+ * ============================================================ */
+
+:root {
+  /* Grayscale palette — 7 stops, nothing else. */
+  --bg:            #ffffff;    /* page */
+  --bg-soft:       #fafafa;    /* subtle panels (exp cards, etc.) */
+  --bg-mute:       #f1f1ee;    /* stats box, incoming box, pill tags */
+  --bg-deep:       #e7e6e0;    /* bar chart tracks */
+  --text:          #161616;    /* H1, name, emphasized body */
+  --text-body:     #232323;    /* default copy */
+  --text-dim:      #555555;    /* captions, metadata */
+  --text-faint:    #888888;    /* footnotes, timestamps */
+  --border:        #e2e2dd;
+  --border-strong: #c3c2bb;
+
+  /* One font. Period. */
+  --ff:  "Source Sans 3", -apple-system, BlinkMacSystemFont,
+         "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+
+  /* Geometry */
+  --page-max:   1200px;
+  --sidebar-w:  280px;
+  --header-h:   56px;
+  --gap:        clamp(1.4rem, 2.5vw, 2.2rem);
+  --px:         clamp(1rem, 2.2vw, 1.6rem);
+  --radius:     4px;
+}
+
+html[data-theme="dark"] {
+  --bg:            #0e0e0f;
+  --bg-soft:       #151516;
+  --bg-mute:       #1c1c1d;
+  --bg-deep:       #222224;
+  --text:          #ededec;
+  --text-body:     #d6d6d4;
+  --text-dim:      #a1a19d;
+  --text-faint:    #70706d;
+  --border:        #2a2a2c;
+  --border-strong: #3c3c3f;
+}
+
+/* ---------- Non-negotiable rules ---------- */
+
+body {
+  font-family: var(--ff);
+  color: var(--text-body);
+  background: var(--bg);
+}
+
+em { font-style: normal; }              /* italics are banned */
+b, strong { font-weight: 600; color: var(--text); }
+
+/* Make HTML [hidden] attribute actually hide things that have their
+ * own display: rule (common in login gates, modals, etc.) */
+[hidden] { display: none !important; }
+
+/* Numeric cells get tabular figures — no monospace needed */
+.num, .kpi-num, .ps-num, .impact-stat-num,
+.pub-cite, .exp-dates, .edu-date, .ndate, .impact-bar-count {
+  font-variant-numeric: tabular-nums;
+}
+
+/* ---------- Sidebar contact grid (3 × 2 stacked cards) ---------- */
+
+.contact-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 8px;
+  margin-bottom: 0.6rem;
+}
+.contact-grid > li > a {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+  padding: 14px 6px 12px;
+  font-size: 0.8rem;
+  font-weight: 500;
+  border-radius: 6px;
+  color: var(--text-body);
+  text-decoration: none;
+  border: 1px solid var(--border);
+  background: var(--bg);
+  min-height: 74px;
+  text-align: center;
+  transition: background 0.15s, border-color 0.15s, color 0.15s, transform 0.15s;
+}
+.contact-grid > li > a:hover {
+  background: var(--bg-mute);
+  border-color: var(--border-strong);
+  color: var(--text);
+  transform: translateY(-1px);
+}
+.contact-grid > li > a > svg {
+  width: 22px; height: 22px;
+  color: var(--text-dim);
+  flex-shrink: 0;
+  transition: color 0.15s;
+}
+.contact-grid > li > a:hover > svg { color: var(--text); }
+
+.sidebar-loc {
+  font-size: 0.78rem;
+  color: var(--text-dim);
+  text-align: center;
+  margin-top: 0;
+  margin-bottom: 0.9rem;
+}
+.sidebar-loc svg { color: var(--text-dim); }
+
+/* ---------- Cross-device: responsive primitives ---------- */
+
+/* iOS safe-area insets (notch / home indicator).
+ * Requires <meta name="viewport" content="... viewport-fit=cover"> */
+body {
+  padding-left:  env(safe-area-inset-left);
+  padding-right: env(safe-area-inset-right);
+}
+.site-header { padding-top:    env(safe-area-inset-top); }
+.site-footer { padding-bottom: env(safe-area-inset-bottom); }
+
+/* Momentum scroll for any inner-scroll container on iOS */
+.news, .pub-list { -webkit-overflow-scrolling: touch; }
+
+/* Platform font-smoothing — cleaner mid-weight rendering on macOS/iOS */
+body {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+/* Reduced motion: disable all transitions / animations.
+ * Some iOS users keep this on permanently. */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Interactive-element minimums on phones.
+ * Any element matching one of these classes gets a 40×40 hit target. */
+@media (max-width: 720px) {
+  .nav-primary a,
+  .theme-toggle,
+  .lang-toggle,
+  .contact-grid li a {
+    min-height: 40px;
+    min-width:  40px;
+  }
+}
