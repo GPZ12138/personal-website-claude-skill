@@ -4,27 +4,36 @@
     "name": "Peizhong (Chill) Gao",
     "url": "https://github.com/gpz12138"
   },
-  "description": "A Claude Code marketplace containing the personal-website-for-ai-researcher skill — one prompt, one academic homepage, deployed to GitHub Pages.",
+  "metadata": {
+    "description": "One Claude Code skill that builds a clean personal homepage for young professionals — researchers and engineers — from LinkedIn + GitHub + (optional) Google Scholar. Deployed to GitHub Pages, zero build step.",
+    "version": "1.0.0"
+  },
   "plugins": [
     {
       "name": "personal-website-for-ai-researcher",
-      "source": ".",
-      "description": "Build a monochrome, PhD-caliber personal homepage for an AI / ML researcher from LinkedIn + Scholar + GitHub. Static, bilingual, deployed to GitHub Pages, zero build step.",
+      "source": "./",
+      "description": "Build a monochrome personal homepage for an AI / ML researcher or technical young professional from LinkedIn + GitHub + (optional) Google Scholar. Static single-page site, two-column layout, bilingual toggle (EN + auto-detected second language), light / dark theme, live Scholar citation widget. Deployed to GitHub Pages with zero build step.",
       "version": "1.0.0",
       "author": {
         "name": "Peizhong (Chill) Gao",
         "url": "https://gpz12138.github.io"
       },
       "homepage": "https://github.com/gpz12138/personal-website-claude-skill",
+      "repository": "https://github.com/gpz12138/personal-website-claude-skill",
       "license": "MIT",
       "keywords": [
         "claude-code",
         "claude-skill",
-        "ai-researcher",
-        "phd",
+        "claude-code-skill",
+        "personal-website",
         "academic-homepage",
-        "github-pages"
-      ]
+        "ai-researcher",
+        "ml-researcher",
+        "github-pages",
+        "google-scholar",
+        "static-site"
+      ],
+      "category": "productivity"
     }
   ]
 }
