@@ -66,20 +66,38 @@ If you're applying anywhere this cycle — grad school, full-time roles, interns
 
 ## ⚡ Install (10 seconds)
 
-**Path 1 — Claude Code plugin (recommended):**
+**Path 1 — Terminal CLI (recommended, zero session-cache issues):**
+
+```bash
+claude plugin marketplace add GPZ12138/personal-website-claude-skill
+claude plugin install personal-website-claude-skill
+```
+
+Run these in a **regular terminal**, not inside a running Claude Code session. This is the fastest and most reliable path — the plugin registers globally (user scope) and every future Claude Code session on this machine will see it.
+
+**Path 2 — Inside a Claude Code session:**
 
 ```
-/plugin marketplace add gpz12138/personal-website-claude-skill
+/plugin marketplace add GPZ12138/personal-website-claude-skill
+```
+
+Then **restart the Claude Code session** (`exit`, then `claude` again) before running:
+
+```
 /plugin install personal-website-claude-skill
 ```
 
-**Path 2 — install.sh (user-global skill):**
+The restart is required because Claude Code's in-session plugin index is populated at startup — running `/plugin install` right after `/plugin marketplace add` in the *same* session can fail with *"Plugin not found in any marketplace"* even though the marketplace was just added successfully. This is a session-cache quirk, not a manifest problem.
+
+**Path 3 — `install.sh` (user-global skill, no plugin system):**
 
 ```bash
-curl -fsSL https://raw.githubusercontent.com/gpz12138/personal-website-claude-skill/main/install.sh | bash
+curl -fsSL https://raw.githubusercontent.com/GPZ12138/personal-website-claude-skill/main/install.sh | bash
 ```
 
-**Path 3 — manual clone + symlink:** see [`docs/INSTALL.md`](docs/INSTALL.md).
+Symlinks the skill directly into `~/.claude/skills/`. Works without the plugin / marketplace layer.
+
+**Path 4 — manual clone + symlink:** see [`docs/INSTALL.md`](docs/INSTALL.md).
 
 ## 💬 Then say
 
