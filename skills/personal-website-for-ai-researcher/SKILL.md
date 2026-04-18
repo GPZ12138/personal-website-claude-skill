@@ -1,6 +1,6 @@
 ---
 name: personal-website-for-ai-researcher
-description: Build a monochrome, PhD-caliber personal homepage for an AI / ML researcher. Static single-page site, two-column layout with sticky sidebar, bilingual EN / 中 toggle, light / dark theme, live Google Scholar citation widget (polite two-tier daily poll). Deployable to GitHub Pages with zero build step. The user provides a LinkedIn URL (minimum), a Google Scholar URL, a GitHub account to deploy to, and ideally a resume PDF — the skill does the rest. Invoke when the user asks for an academic researcher homepage, a personal site for job-search / grad-school / faculty / industry-lab applications, a Jekyll-less alternative to al-folio, or a refresh of their existing Scholar-facing homepage.
+description: Build a monochrome, PhD-caliber personal homepage for an AI / ML researcher. Static single-page site, two-column layout with sticky sidebar, English-by-default with optional bilingual mode (English + whatever language the user is chatting in — Chinese, Japanese, Spanish, French, Korean, etc. — auto-detected, not hardcoded), light / dark theme, live Google Scholar citation widget (polite two-tier daily poll). Deployable to GitHub Pages with zero build step. The user provides a LinkedIn URL (minimum), a Google Scholar URL, a GitHub account to deploy to, and ideally a resume PDF — the skill does the rest. Invoke when the user asks for an academic researcher homepage, a personal site for job-search / grad-school / faculty / industry-lab applications, a Jekyll-less alternative to al-folio, or a refresh of their existing Scholar-facing homepage.
 ---
 
 # Personal Website for AI Researcher
@@ -43,7 +43,7 @@ fields) the default the skill will propose.
 
 | Field | Required? | Default | Notes |
 |---|---|---|---|
-| `language` | **required** | `English only` | Confirm with user; switch to `bilingual EN + 中` only if explicitly requested. |
+| `language` | **required** | `English only` | Default is English-only. If the user converses with the skill in a non-English language (Chinese, Japanese, Korean, Spanish, French, etc.), propose `bilingual EN + <that language>` and confirm. The non-English language is auto-detected from the user's conversation, not assumed. User can always override to English-only even if they chat in another language. |
 | `linkedin_url` | **required** | — | Source of truth for roles, dates, bio. |
 | `scholar_url` | **required** | — | Skill extracts the `user=...` ID → `<scholar-id>` for the live widget. |
 | `github_username` | **required** | — | User-page URLs (`<github-username>.github.io`) require the repo name to match exactly — this is a GitHub rule. |
@@ -183,8 +183,13 @@ user's register):
 >
 > **Required, with a default** (say "ok to default" to accept):
 >
-> 4. **Language** — default is **English only**. Reply "bilingual"
->    if you want EN + 中.
+> 4. **Language** — default is **English only**. If you've been
+>    chatting with me in a language other than English (Chinese,
+>    Japanese, Spanish, French, Korean, …), I'll auto-propose
+>    `bilingual EN + <that language>`. Reply "bilingual" to accept
+>    the auto-detected pairing, or "bilingual + <explicit language>"
+>    to pick a different second language, or "English only" to
+>    override.
 > 5. **Confidentiality** — default is **strict**: only
 >    publicly-released numbers and model names make the page.
 >    Reply with anything you specifically want allowed or
@@ -344,7 +349,7 @@ in the shipped HTML.
 
 ```
 repo/
-├── index.html                single-page homepage; data-en/data-zh pairs
+├── index.html                single-page homepage; data-en/data-<lang> pairs (zh/ja/es/…)
 ├── styles.css                monochrome grayscale, one font
 ├── script.js                 theme + lang + nav spy + reveal + scholar fetch
 ├── assets/
@@ -436,35 +441,40 @@ them costs 20 minutes per round of rework. Hold firm.
 
 ### Language-purity rule (every interface)
 
-One rule, asymmetric — applies to every language version you build,
-not just EN / 中:
+One rule, asymmetric — applies to every EN + second-language
+pairing you build (EN + zh, EN + ja, EN + es, EN + fr, EN + ko,
+EN + de, EN + pt, …):
 
 **The English interface contains only English.** Any non-English
 glyph on a page the user has set to English is a bug. The only
 exception is a **professional term or proper noun that has no
 English-language equivalent** — in that case use the term once,
-parenthesized, and prefer the Romanized / Pinyin / English-gloss
-form over the original script:
+parenthesized, and prefer the Romanized / transliterated /
+English-gloss form over the original script:
 - OK: *"Rising Stars (talent program name)"* — transliterated /
-  English-glossed, no CJK.
+  English-glossed, no CJK / Hangul / Cyrillic / etc.
 - OK: *"kaizen-style iteration"* — technical loanword in common
   English usage.
 - Not OK: *"Rising Stars (新星计划)"* on the English page — CJK
-  glyphs a foreign reader can't decode.
+  glyphs a foreign reader can't decode. Same for *"Rising Stars
+  (ライジングスターズ)"* (Japanese) or *"Rising Stars (떠오르는
+  별)"* (Korean) — script a monolingual English reader can't
+  parse is always a bug on the English interface.
 
-**Other-language interfaces (Chinese, Japanese, Korean, …)
-may contain English** — for brand names, technical vocabulary,
-paper titles, model names, and any term where the English
-version is the canonical form used in the field:
-- OK (on the Chinese page): *"GPT-4 Technical Report"*,
-  *"post-training"*, *"verifiable RL"*.
+**Other-language interfaces (Chinese, Japanese, Korean, Spanish,
+French, …) may contain English** — for brand names, technical
+vocabulary, paper titles, model names, and any term where the
+English version is the canonical form used in the field:
+- OK (on the Chinese / Japanese / Spanish / … page):
+  *"GPT-4 Technical Report"*, *"post-training"*,
+  *"verifiable RL"*, *"diffusion model"*.
 - OK: proper nouns like *"Google"*, *"OpenAI"*,
   *"NeurIPS"*, *"arXiv"*.
 
 This asymmetry reflects English's role as the technical lingua
-franca of ML — readers of the Chinese page are overwhelmingly
-bilingual on technical terms, readers of the English page are
-not.
+franca of ML — readers of the second-language page are
+overwhelmingly bilingual on technical terms; readers of the
+English page are not.
 
 **General principle**: minimize language mixing; prefer
 consistency. When you're about to insert a foreign-script token
@@ -472,16 +482,46 @@ into any interface, ask: *is this a professional term that has
 no clean equivalent, or am I just defaulting to the source form
 out of laziness?* If the latter, translate or transliterate.
 
-### Bilingual parity — hard rules if building EN + 中
+### Bilingual parity — hard rules if building EN + a second language
 
-- English is canonical. Chinese mirrors it.
-- All translatable nodes carry both `data-en` and `data-zh`
-  attributes; the default visible HTML must match `data-en`.
-- Chinese page uses full-width punctuation: `：，。` not `:,.`.
-- When you toggle to the Chinese version, open every section and
-  re-read it end-to-end — a half-translated page is worse than
+The second language is **whatever the user has been conversing in**
+(Chinese `zh`, Japanese `ja`, Korean `ko`, Spanish `es`, French `fr`,
+German `de`, Portuguese `pt`, …). Detect from the user's first few
+messages; if ambiguous, ask once. **Do not** hardcode Chinese.
+
+- **English is canonical. The second language mirrors it.** If
+  the English side has a sentence the other side doesn't, that's
+  a bug — catch it before ship.
+- **All translatable nodes carry both `data-en` and `data-<code>`**
+  attributes (`<code>` is the ISO 639-1 code: `zh`, `ja`, `ko`,
+  `es`, `fr`, `de`, `pt`, …). The default visible HTML **must
+  byte-match `data-en`** so search crawlers and pre-JS readers see
+  the same page as everyone else.
+- **Set `<html lang>` and `data-lang` correctly**. On toggle,
+  `<html>` gets `lang="en"` or `lang="zh-CN"` / `lang="ja"` /
+  `lang="es"` etc., and `data-lang` gets the short code.
+- **Use the second language's native punctuation conventions.**
+  - Chinese / Japanese: full-width `：，。` not `:,.`
+  - French: non-breaking space before `:` `;` `?` `!`; guillemets
+    `«&nbsp;…&nbsp;»`
+  - Spanish: opening `¿` `¡` on questions / exclamations
+  - Korean: half-width with the language's standard spacing
+  - …use the language's own typographic norms, not a transliteration of English punctuation.
+- **The language-purity rule applies asymmetrically** (see the
+  section above this one): the English interface is pure English
+  (only parenthesized professional terms with no English equivalent
+  are allowed, and even then prefer Romanized form); the
+  second-language interface may keep canonical English technical
+  terms (paper titles, model names, method names, venue names).
+- **Toggle QA**: after building, open both versions end-to-end and
+  re-read every section. A half-translated page is worse than
   English-only. News items are the most commonly-forgotten
   coverage hole; check every `<li>`.
+- **Toggle button label**: the button shows the *other* language's
+  native glyph — `中` on the EN page, `EN` on the Chinese page;
+  `日本語` on the EN page, `EN` on the Japanese page; `ES` / `EN`;
+  `FR` / `EN`; etc. The user clicks the label of the language they
+  want to switch *to*.
 
 ### Photo
 
@@ -1003,6 +1043,14 @@ Every translatable node has both:
 </p>
 ```
 
+The second-language attribute name is `data-<code>` where
+`<code>` is the ISO 639-1 code of the user's language — `zh`
+for Chinese, `ja` for Japanese, `ko` for Korean, `es` for
+Spanish, `fr` for French, `de` for German, `pt` for Portuguese,
+etc. The example above uses `data-zh` because Chinese was the
+detected conversation language; a Spanish-speaking user gets
+`data-es`, a Japanese-speaking user gets `data-ja`, and so on.
+
 - `data-en-html="true"` signals to `script.js` that these
   attributes contain HTML (links, `<b>`) and should be set via
   `innerHTML`. Without that flag, JS uses `textContent` (safe for
@@ -1010,6 +1058,10 @@ Every translatable node has both:
 - The default visible HTML must match `data-en` exactly —
   otherwise pre-JS readers and search-engine crawlers see a
   different page than post-JS readers.
+- The `script.js` toggle uses `el.dataset[lang]` where `lang`
+  is read from `<html data-lang>` — so adding a new language
+  only requires matching `data-<code>` attributes and updating
+  the toggle button's label. No JS changes needed.
 
 ### Publication row format
 
@@ -1071,9 +1123,12 @@ Single IIFE, ~200 LOC, no modules, no dependencies. Behaviors:
 1. **Theme.** `localStorage` key, default from
    `prefers-color-scheme`. Toggle flips `data-theme` on `<html>`.
 2. **Language.** `localStorage` key, default `en`. Toggle walks
-   every `[data-en][data-zh]` and swaps `textContent` or
-   `innerHTML` (if `data-en-html="true"`). Updates `lang` attr on
-   `<html>`.
+   every `[data-en]` node, reads the target language from
+   `<html data-lang>`, picks the value from `el.dataset[lang]`
+   (so `data-zh` for Chinese, `data-ja` for Japanese, `data-es`
+   for Spanish, etc.), and swaps `textContent` or `innerHTML`
+   (if `data-en-html="true"`). Also updates `<html lang>` to the
+   correct BCP-47 code (`en`, `zh-CN`, `ja`, `es`, `fr`, …).
 3. **Nav spy.** `IntersectionObserver` with
    `rootMargin: "-30% 0px -55% 0px"`. Underlines the nav link
    whose section is in the middle of the viewport.
@@ -1332,8 +1387,9 @@ proposed small edit:
 
 **Markup / JS**
 - Every SVG has explicit `width="N" height="N"`?
-- Every `<li>` in `.news` has both `data-en` and `data-zh` (if
-  bilingual)?
+- Every `<li>` in `.news` has both `data-en` and `data-<code>`
+  (if bilingual — where `<code>` is the second language's ISO
+  639-1 code, e.g. `zh` / `ja` / `es` / `fr`)?
 - `?v=N` bumped on latest CSS / JS change?
 
 **Data integrity**
@@ -1437,9 +1493,10 @@ Inline SVG data URI with the user's initials:
 - [ ] No hex color outside `:root` token table.
 - [ ] No `font-family` line besides the one `--ff` token.
 - [ ] `em { font-style: normal; }` in CSS.
-- [ ] Every `<h2>` has `data-en` + `data-zh` (if bilingual).
-- [ ] Every `<li>` in `.news` has `data-en` + `data-zh` — the
-      most commonly-forgotten coverage hole.
+- [ ] Every `<h2>` has `data-en` + `data-<code>` (if bilingual —
+      `<code>` = user's second-language ISO 639-1 code).
+- [ ] Every `<li>` in `.news` has `data-en` + `data-<code>` —
+      the most commonly-forgotten coverage hole.
 - [ ] Pre-JS default HTML **byte-equal** to the `data-en` value.
 - [ ] Every SVG has explicit `width="N" height="N"` attributes.
 - [ ] `?v=N` bumped on every CSS / JS change.
