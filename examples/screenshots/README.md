@@ -1,6 +1,6 @@
 # Screenshots
 
-All captures in this directory were generated from the live, deployed site [gpz12138.github.io](https://gpz12138.github.io) — which was itself built end-to-end by the `personal-website-for-ai-researcher` skill in a single Claude Code rollout from one resume PDF.
+All captures in this directory were generated from the live, deployed site [gpz12138.github.io](https://gpz12138.github.io) — which was itself built end-to-end by the `personal-website-claude-skill` skill in a single Claude Code rollout from one resume PDF.
 
 | File | Size | Notes |
 |---|---|---|

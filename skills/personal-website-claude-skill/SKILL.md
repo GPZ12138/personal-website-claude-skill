@@ -1,5 +1,5 @@
 ---
-name: personal-website-for-ai-researcher
+name: personal-website-claude-skill
 description: Build a monochrome, PhD-caliber personal homepage for an AI / ML researcher. Static single-page site, two-column layout with sticky sidebar, English-by-default with optional bilingual mode (English + whatever language the user is chatting in — Chinese, Japanese, Spanish, French, Korean, etc. — auto-detected, not hardcoded), light / dark theme, live Google Scholar citation widget (polite two-tier daily poll). Deployable to GitHub Pages with zero build step. The user provides a LinkedIn URL (minimum), a Google Scholar URL, a GitHub account to deploy to, and ideally a resume PDF — the skill does the rest. Invoke when the user asks for an academic researcher homepage, a personal site for job-search / grad-school / faculty / industry-lab applications, a Jekyll-less alternative to al-folio, or a refresh of their existing Scholar-facing homepage.
 ---
 
@@ -164,7 +164,7 @@ The skill must start every fresh session with a single
 consolidated message along these lines (adapt wording to the
 user's register):
 
-> I'll use the `personal-website-for-ai-researcher` skill —
+> I'll use the `personal-website-claude-skill` skill —
 > monochrome two-column site, live Scholar widget, GitHub Pages
 > deploy, zero build step.
 >

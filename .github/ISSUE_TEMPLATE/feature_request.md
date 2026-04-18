@@ -19,7 +19,7 @@ Describe how a user would invoke this. What do they say to Claude Code? What doe
 
 ## Anything that would conflict with existing rules?
 
-Read `skills/personal-website-for-ai-researcher/SKILL.md` Phase 4 (design principles) and Phase 5 (content rules). If your feature would break any of them, make the case here.
+Read `skills/personal-website-claude-skill/SKILL.md` Phase 4 (design principles) and Phase 5 (content rules). If your feature would break any of them, make the case here.
 
 ## References (optional)
 

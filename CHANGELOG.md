@@ -10,7 +10,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 Initial public release.
 
 ### Added
-- `personal-website-for-ai-researcher` skill with 13-phase instructions (`skills/personal-website-for-ai-researcher/SKILL.md`).
+- `personal-website-claude-skill` skill with 13-phase instructions (`skills/personal-website-claude-skill/SKILL.md`).
 - Six drop-in templates:
   - `styles.tokens.css` — monochrome palette + core rules
   - `fetch_scholar.py` — two-tier polite Scholar scraper

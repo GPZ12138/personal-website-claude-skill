@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 #
-# One-line installer for the `personal-website-for-ai-researcher` Claude Code skill.
+# One-line installer for the `personal-website-claude-skill` Claude Code skill.
 #
 #   curl -fsSL https://raw.githubusercontent.com/gpz12138/personal-website-claude-skill/main/install.sh | bash
 #
@@ -11,7 +11,7 @@
 set -euo pipefail
 
 REPO_URL="https://github.com/gpz12138/personal-website-claude-skill.git"
-SKILL_NAME="personal-website-for-ai-researcher"
+SKILL_NAME="personal-website-claude-skill"
 SRC_DIR="$HOME/.claude-skills-src/personal-website-claude-skill"
 DEST_DIR="$HOME/.claude/skills/$SKILL_NAME"
 

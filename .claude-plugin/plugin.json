@@ -1,9 +1,9 @@
 {
-  "name": "personal-website-for-ai-researcher",
+  "name": "personal-website-claude-skill",
   "version": "1.0.0",
   "description": "Build a clean personal homepage for an AI / ML researcher or technical young professional from LinkedIn + GitHub + (optional) Google Scholar. Static, monochrome, two-column layout, bilingual toggle (EN + auto-detected second language), light / dark theme, live Scholar citation widget. Deployed to GitHub Pages with zero build step.",
   "skills": [
-    "./skills/personal-website-for-ai-researcher"
+    "./skills/personal-website-claude-skill"
   ],
   "author": {
     "name": "Peizhong (Chill) Gao",
@@ -15,7 +15,7 @@
   "keywords": [
     "claude-code",
     "claude-skill",
-    "personal-website",
+    "personal-website-claude-skill",
     "academic-homepage",
     "ai-researcher",
     "ml-researcher",

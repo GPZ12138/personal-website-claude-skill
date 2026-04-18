@@ -70,7 +70,7 @@ If you're applying anywhere this cycle — grad school, full-time roles, interns
 
 ```
 /plugin marketplace add gpz12138/personal-website-claude-skill
-/plugin install personal-website-for-ai-researcher
+/plugin install personal-website-claude-skill
 ```
 
 **Path 2 — install.sh (user-global skill):**
@@ -137,7 +137,7 @@ These are opinions, not laws. The skill leans on them by default; you can overri
 15. **Live Scholar widget that won't get you CAPTCHA'd.** Two-tier polite poll runs daily at a non-round minute (`17 3 * * *`) to dodge the top-of-hour bot peak. A lightweight HTML scrape reads one number first; only on change does it trigger the heavy full scrape via `scholarly`. On any error, the previous snapshot is preserved — your page never flickers to zero.
 16. **Two-agent review, minimum three rounds.** A generator agent ships v1. A reviewer agent opens the deployed URL and scores against a 30-item rubric (palette / tone / markup / data integrity / responsiveness / deployment correctness). Flags become fixes, fixes redeploy, redeploy gets re-reviewed — until the rubric clears, then twice more.
 
-Full rationale for each rule — and ~50 more pre-ship checklist items I didn't surface here — lives in [`skills/personal-website-for-ai-researcher/SKILL.md`](skills/personal-website-for-ai-researcher/SKILL.md). That file is the spec; the rules aren't arbitrary, but they are opinionated.
+Full rationale for each rule — and ~50 more pre-ship checklist items I didn't surface here — lives in [`skills/personal-website-claude-skill/SKILL.md`](skills/personal-website-claude-skill/SKILL.md). That file is the spec; the rules aren't arbitrary, but they are opinionated.
 
 ## 🖼️ Example
 

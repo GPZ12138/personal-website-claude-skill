@@ -4,7 +4,7 @@ PRs welcome. This skill is a distilled taste profile for what a top-lab academic
 
 ## Before proposing a rule change
 
-Read the rationale paragraph next to the rule in `skills/personal-website-for-ai-researcher/SKILL.md`. If the rule looks wrong to you at first glance, that is the exact reaction the rule is there to override — please read the `Why` before opening the PR.
+Read the rationale paragraph next to the rule in `skills/personal-website-claude-skill/SKILL.md`. If the rule looks wrong to you at first glance, that is the exact reaction the rule is there to override — please read the `Why` before opening the PR.
 
 If after reading the rationale you still think the rule is wrong, open an issue first and make the case in writing. Some rules are opinion; some are load-bearing.
 

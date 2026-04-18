@@ -1,6 +1,6 @@
 # Demo site — "Alex Morgan"
 
-**This is a fabricated demonstration of what the `personal-website-for-ai-researcher` skill produces.** Nothing in it corresponds to a real person.
+**This is a fabricated demonstration of what the `personal-website-claude-skill` skill produces.** Nothing in it corresponds to a real person.
 
 - **Name, affiliations, publications, benchmarks, honors — all invented.**
 - The avatar is a monochrome geometric identicon, not a real photo.

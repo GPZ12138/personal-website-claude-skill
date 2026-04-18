@@ -4,7 +4,7 @@ From zero to a live academic homepage at `<your-username>.github.io`. You need a
 
 ## 1. Install the skill
 
-See [`INSTALL.md`](INSTALL.md). If you already did `/plugin install personal-website-for-ai-researcher`, skip this.
+See [`INSTALL.md`](INSTALL.md). If you already did `/plugin install personal-website-claude-skill`, skip this.
 
 ## 2. Make sure your GitHub is ready
 

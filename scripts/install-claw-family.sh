@@ -16,7 +16,7 @@
 set -euo pipefail
 
 TARGET="${1:-}"
-SKILL_NAME="personal-website-for-ai-researcher"
+SKILL_NAME="personal-website-claude-skill"
 REPO_ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 SKILL_SRC="$REPO_ROOT/skills/$SKILL_NAME"
 

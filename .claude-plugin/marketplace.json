@@ -10,7 +10,7 @@
   },
   "plugins": [
     {
-      "name": "personal-website-for-ai-researcher",
+      "name": "personal-website-claude-skill",
       "source": "./",
       "description": "Build a monochrome personal homepage for an AI / ML researcher or technical young professional from LinkedIn + GitHub + (optional) Google Scholar. Static single-page site, two-column layout, bilingual toggle (EN + auto-detected second language), light / dark theme, live Scholar citation widget. Deployed to GitHub Pages with zero build step.",
       "version": "1.0.0",
@@ -25,7 +25,7 @@
         "claude-code",
         "claude-skill",
         "claude-code-skill",
-        "personal-website",
+        "personal-website-claude-skill",
         "academic-homepage",
         "ai-researcher",
         "ml-researcher",

@@ -26,25 +26,25 @@ Then run NanoClaw from the repo root in either form:
 
 ```bash
 # (a) boot REPL with the skill auto-loaded as system context
-CLAW_SKILLS=personal-website-for-ai-researcher claw
+CLAW_SKILLS=personal-website-claude-skill claw
 
 # (b) boot empty, load on demand
 claw
-> /load personal-website-for-ai-researcher
+> /load personal-website-claude-skill
 ```
 
 ### Hermes — full invocation
 
 ```bash
 ./scripts/install-claw-family.sh hermes
-# → symlinks ~/.hermes/skills/ecc-imports/personal-website-for-ai-researcher
-ls -l ~/.hermes/skills/ecc-imports/personal-website-for-ai-researcher
+# → symlinks ~/.hermes/skills/ecc-imports/personal-website-claude-skill
+ls -l ~/.hermes/skills/ecc-imports/personal-website-claude-skill
 # → should resolve to this repo
 ```
 
 Hermes will pick the skill up via its `ecc-imports` loader on next start. From a Hermes session:
 
-> *"Use the personal-website-for-ai-researcher skill — LinkedIn `<...>`, GitHub `<...>`, Scholar `<...>`."*
+> *"Use the personal-website-claude-skill skill — LinkedIn `<...>`, GitHub `<...>`, Scholar `<...>`."*
 
 ### OpenClaw — security advisory before installing
 
@@ -72,7 +72,7 @@ To install anyway:
 ./scripts/install-claw-family.sh openclaw     # interactive — prompts to confirm
 ```
 
-The script symlinks the skill into `~/.claude/skills/` (the path most claude-bridge implementations consume). If your OpenClaw setup uses a different skill loader, copy `skills/personal-website-for-ai-researcher/` into wherever your bridge expects.
+The script symlinks the skill into `~/.claude/skills/` (the path most claude-bridge implementations consume). If your OpenClaw setup uses a different skill loader, copy `skills/personal-website-claude-skill/` into wherever your bridge expects.
 
 ## Path 1 — Claude Code plugin (recommended)
 
@@ -80,7 +80,7 @@ Makes the skill discoverable across every session without touching your filesyst
 
 ```
 /plugin marketplace add gpz12138/personal-website-claude-skill
-/plugin install personal-website-for-ai-researcher
+/plugin install personal-website-claude-skill
 ```
 
 Verify:
@@ -89,19 +89,19 @@ Verify:
 /plugin list
 ```
 
-You should see `personal-website-for-ai-researcher` in the enabled list.
+You should see `personal-website-claude-skill` in the enabled list.
 
 To update later:
 
 ```
 /plugin marketplace update personal-website-claude-skill
-/plugin install personal-website-for-ai-researcher
+/plugin install personal-website-claude-skill
 ```
 
 To uninstall:
 
 ```
-/plugin uninstall personal-website-for-ai-researcher
+/plugin uninstall personal-website-claude-skill
 /plugin marketplace remove personal-website-claude-skill
 ```
 
@@ -118,10 +118,10 @@ The script is idempotent — running it again pulls the latest and re-links.
 Verify:
 
 ```bash
-ls -l ~/.claude/skills/personal-website-for-ai-researcher
+ls -l ~/.claude/skills/personal-website-claude-skill
 ```
 
-You should see a symlink pointing to `~/.claude-skills-src/personal-website-claude-skill/skills/personal-website-for-ai-researcher`.
+You should see a symlink pointing to `~/.claude-skills-src/personal-website-claude-skill/skills/personal-website-claude-skill`.
 
 To update:
 
@@ -132,7 +132,7 @@ git -C ~/.claude-skills-src/personal-website-claude-skill pull
 To uninstall:
 
 ```bash
-rm ~/.claude/skills/personal-website-for-ai-researcher
+rm ~/.claude/skills/personal-website-claude-skill
 rm -rf ~/.claude-skills-src/personal-website-claude-skill
 ```
 
@@ -144,11 +144,11 @@ Commit the skill into a specific project's `.claude/skills/` — useful if you w
 cd /path/to/your/project
 mkdir -p .claude/skills
 git clone --depth 1 https://github.com/gpz12138/personal-website-claude-skill.git /tmp/skill-src
-cp -r /tmp/skill-src/skills/personal-website-for-ai-researcher .claude/skills/
+cp -r /tmp/skill-src/skills/personal-website-claude-skill .claude/skills/
 rm -rf /tmp/skill-src
 ```
 
-Then commit `.claude/skills/personal-website-for-ai-researcher/` so collaborators on this project get the skill automatically on `git clone`.
+Then commit `.claude/skills/personal-website-claude-skill/` so collaborators on this project get the skill automatically on `git clone`.
 
 ## Verify the skill works
 
@@ -156,9 +156,9 @@ Open Claude Code in any empty folder and say:
 
 > *"List the skills you have available."*
 
-You should see `personal-website-for-ai-researcher` with its description. Now say:
+You should see `personal-website-claude-skill` with its description. Now say:
 
-> *"Use the `personal-website-for-ai-researcher` skill. My LinkedIn is …, my Scholar is …, my GitHub is …"*
+> *"Use the `personal-website-claude-skill` skill. My LinkedIn is …, my Scholar is …, my GitHub is …"*
 
 The skill will respond with its clarification script. That confirms it's wired up correctly.
 
@@ -168,8 +168,8 @@ The skill will respond with its clarification script. That confirms it's wired u
 
 **Skill doesn't appear in `/plugin list`** — plugin marketplace additions are per-Claude-Code-install. If you use Claude Code on multiple machines, re-run `/plugin marketplace add` on each.
 
-**Skill appears but isn't auto-invoked** — skill auto-invocation is based on the `description` field matching your prompt. If Claude doesn't pick it up from a vague prompt, name it explicitly: *"Use the `personal-website-for-ai-researcher` skill."*
+**Skill appears but isn't auto-invoked** — skill auto-invocation is based on the `description` field matching your prompt. If Claude doesn't pick it up from a vague prompt, name it explicitly: *"Use the `personal-website-claude-skill` skill."*
 
 **`curl | bash` fails on enterprise-locked machines** — fall back to Path 3 (manual clone) or ask your admin to whitelist `raw.githubusercontent.com`.
 
-**LinkedIn / Scholar fetch fails during a build** — this is expected on some networks. The skill escalates through four fallback tiers before giving up; see `skills/personal-website-for-ai-researcher/SKILL.md` Phase 1 for the full fetch-fallback policy. Worst case, you paste the relevant sections into the chat.
+**LinkedIn / Scholar fetch fails during a build** — this is expected on some networks. The skill escalates through four fallback tiers before giving up; see `skills/personal-website-claude-skill/SKILL.md` Phase 1 for the full fetch-fallback policy. Worst case, you paste the relevant sections into the chat.
