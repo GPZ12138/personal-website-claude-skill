@@ -37,7 +37,7 @@
   &nbsp;·&nbsp;
   <a href="#-what-i-baked-in"><b>Opinions</b></a>
   &nbsp;·&nbsp;
-  <a href="#-example"><b>Example</b></a>
+  <a href="#%EF%B8%8F-example"><b>Example</b></a>
   &nbsp;·&nbsp;
   <a href="#-faq"><b>FAQ</b></a>
 </p>
