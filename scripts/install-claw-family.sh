@@ -28,7 +28,7 @@ err()   { printf "\033[1;31m✗\033[0m %s\n" "$*" >&2; }
 if [ ! -d "$SKILL_SRC" ]; then
     err "Skill source not found at $SKILL_SRC"
     err "Run this script from the repo, e.g.:"
-    err "  cd awesome-personal-website-skills && ./scripts/install-claw-family.sh <target>"
+    err "  cd personal-website-claude-skill && ./scripts/install-claw-family.sh <target>"
     exit 1
 fi
 

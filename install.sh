@@ -2,7 +2,7 @@
 #
 # One-line installer for the `personal-website-for-ai-researcher` Claude Code skill.
 #
-#   curl -fsSL https://raw.githubusercontent.com/gpz12138/awesome-personal-website-skills/main/install.sh | bash
+#   curl -fsSL https://raw.githubusercontent.com/gpz12138/personal-website-claude-skill/main/install.sh | bash
 #
 # Installs as a user-global skill under ~/.claude/skills so every Claude Code
 # session on this machine can invoke it.
@@ -10,9 +10,9 @@
 
 set -euo pipefail
 
-REPO_URL="https://github.com/gpz12138/awesome-personal-website-skills.git"
+REPO_URL="https://github.com/gpz12138/personal-website-claude-skill.git"
 SKILL_NAME="personal-website-for-ai-researcher"
-SRC_DIR="$HOME/.claude-skills-src/awesome-personal-website-skills"
+SRC_DIR="$HOME/.claude-skills-src/personal-website-claude-skill"
 DEST_DIR="$HOME/.claude/skills/$SKILL_NAME"
 
 info()  { printf "\033[1;34m==>\033[0m %s\n" "$*"; }
@@ -65,6 +65,6 @@ cat <<'BANNER'
 
   The skill will take it from there.
 
-  Docs:  https://github.com/gpz12138/awesome-personal-website-skills
+  Docs:  https://github.com/gpz12138/personal-website-claude-skill
 ───────────────────────────────────────────────────────────────
 BANNER

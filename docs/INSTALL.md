@@ -17,8 +17,8 @@ The skill is a plain `SKILL.md` + `templates/` folder. Each runtime expects it a
 ### NanoClaw — full invocation
 
 ```bash
-git clone https://github.com/gpz12138/awesome-personal-website-skills.git
-cd awesome-personal-website-skills
+git clone https://github.com/gpz12138/personal-website-claude-skill.git
+cd personal-website-claude-skill
 ./scripts/install-claw-family.sh nanoclaw     # prints invocation, no FS changes
 ```
 
@@ -79,7 +79,7 @@ The script symlinks the skill into `~/.claude/skills/` (the path most claude-bri
 Makes the skill discoverable across every session without touching your filesystem. Inside Claude Code:
 
 ```
-/plugin marketplace add gpz12138/awesome-personal-website-skills
+/plugin marketplace add gpz12138/personal-website-claude-skill
 /plugin install personal-website-for-ai-researcher
 ```
 
@@ -94,7 +94,7 @@ You should see `personal-website-for-ai-researcher` in the enabled list.
 To update later:
 
 ```
-/plugin marketplace update awesome-personal-website-skills
+/plugin marketplace update personal-website-claude-skill
 /plugin install personal-website-for-ai-researcher
 ```
 
@@ -102,7 +102,7 @@ To uninstall:
 
 ```
 /plugin uninstall personal-website-for-ai-researcher
-/plugin marketplace remove awesome-personal-website-skills
+/plugin marketplace remove personal-website-claude-skill
 ```
 
 ## Path 2 — User-global skill via install.sh
@@ -110,7 +110,7 @@ To uninstall:
 Clones the repo under `~/.claude-skills-src/` and symlinks the skill into `~/.claude/skills/`. Works in every Claude Code session on this machine.
 
 ```bash
-curl -fsSL https://raw.githubusercontent.com/gpz12138/awesome-personal-website-skills/main/install.sh | bash
+curl -fsSL https://raw.githubusercontent.com/gpz12138/personal-website-claude-skill/main/install.sh | bash
 ```
 
 The script is idempotent — running it again pulls the latest and re-links.
@@ -121,19 +121,19 @@ Verify:
 ls -l ~/.claude/skills/personal-website-for-ai-researcher
 ```
 
-You should see a symlink pointing to `~/.claude-skills-src/awesome-personal-website-skills/skills/personal-website-for-ai-researcher`.
+You should see a symlink pointing to `~/.claude-skills-src/personal-website-claude-skill/skills/personal-website-for-ai-researcher`.
 
 To update:
 
 ```bash
-git -C ~/.claude-skills-src/awesome-personal-website-skills pull
+git -C ~/.claude-skills-src/personal-website-claude-skill pull
 ```
 
 To uninstall:
 
 ```bash
 rm ~/.claude/skills/personal-website-for-ai-researcher
-rm -rf ~/.claude-skills-src/awesome-personal-website-skills
+rm -rf ~/.claude-skills-src/personal-website-claude-skill
 ```
 
 ## Path 3 — Manual install per project
@@ -143,7 +143,7 @@ Commit the skill into a specific project's `.claude/skills/` — useful if you w
 ```bash
 cd /path/to/your/project
 mkdir -p .claude/skills
-git clone --depth 1 https://github.com/gpz12138/awesome-personal-website-skills.git /tmp/skill-src
+git clone --depth 1 https://github.com/gpz12138/personal-website-claude-skill.git /tmp/skill-src
 cp -r /tmp/skill-src/skills/personal-website-for-ai-researcher .claude/skills/
 rm -rf /tmp/skill-src
 ```

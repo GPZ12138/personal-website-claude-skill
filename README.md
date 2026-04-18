@@ -2,7 +2,7 @@
   <sub><b>·&nbsp; A&nbsp;CLAUDE&nbsp;CODE&nbsp;SKILL &nbsp;·</b></sub>
 </p>
 
-<h1 align="center">Awesome Personal Website Skills</h1>
+<h1 align="center">Personal Website Claude Skill</h1>
 
 <p align="center">
   <b>A Claude Code skill for young professionals — researchers and engineers alike — who need a site that makes them findable.</b><br/>
@@ -17,7 +17,7 @@
   &nbsp;
   <a href="docs/INSTALL.md#compatibility"><img alt="Hermes · NanoClaw · OpenClaw compatible" src="https://img.shields.io/badge/Hermes%20%C2%B7%20NanoClaw%20%C2%B7%20OpenClaw-compatible-111?style=flat-square"/></a>
   &nbsp;
-  <a href="https://github.com/gpz12138/awesome-personal-website-skills/stargazers"><img alt="GitHub stars" src="https://img.shields.io/github/stars/gpz12138/awesome-personal-website-skills?style=flat-square&color=111&label=%E2%98%85"/></a>
+  <a href="https://github.com/gpz12138/personal-website-claude-skill/stargazers"><img alt="GitHub stars" src="https://img.shields.io/github/stars/gpz12138/personal-website-claude-skill?style=flat-square&color=111&label=%E2%98%85"/></a>
   &nbsp;
   <img alt="Deploys to GitHub Pages" src="https://img.shields.io/badge/deploys%20to-GitHub%20Pages-111?style=flat-square"/>
 </p>
@@ -69,14 +69,14 @@ If you're applying anywhere this cycle — grad school, full-time roles, interns
 **Path 1 — Claude Code plugin (recommended):**
 
 ```
-/plugin marketplace add gpz12138/awesome-personal-website-skills
+/plugin marketplace add gpz12138/personal-website-claude-skill
 /plugin install personal-website-for-ai-researcher
 ```
 
 **Path 2 — install.sh (user-global skill):**
 
 ```bash
-curl -fsSL https://raw.githubusercontent.com/gpz12138/awesome-personal-website-skills/main/install.sh | bash
+curl -fsSL https://raw.githubusercontent.com/gpz12138/personal-website-claude-skill/main/install.sh | bash
 ```
 
 **Path 3 — manual clone + symlink:** see [`docs/INSTALL.md`](docs/INSTALL.md).
