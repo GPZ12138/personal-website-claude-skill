@@ -34,3 +34,6 @@ scripts/node_modules/
 # Local scratch
 /tmp/
 /scratch/
+
+# Private / operator-only — never published
+_private/
